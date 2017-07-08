@@ -9,11 +9,9 @@ public class CreatingUser {
 
     private ReadConsole inputReadConsole;
     private final UserNotifier userNotifier;
-    private WriteConsole outputWriteConsole;
 
     public CreatingUser(ReadConsole inputReadConsole, WriteConsole outputWriteConsole) {
         this.inputReadConsole = inputReadConsole;
-        this.outputWriteConsole = outputWriteConsole;
         userNotifier = new UserNotifier(outputWriteConsole);
     }
 
