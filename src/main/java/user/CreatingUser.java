@@ -17,7 +17,9 @@ public class CreatingUser {
 
     public void invoke() {
         UserData userData = readUserData();
-        if (!userData.isValidPassword(userNotifier)) return;
+        if (!userData.isValidPassword(userNotifier)){
+            return;
+        }
         userNotifier.userCreated(userData);
     }
 
