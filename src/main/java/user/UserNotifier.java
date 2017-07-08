@@ -20,4 +20,8 @@ public class UserNotifier {
     void passwordsDidNotMatch() {
         console.printLine("The passwords don't match");
     }
+
+    void passwordDidNotComplyWithPolicy() {
+        console.printLine("Password must be at least 8 characters in length");
+    }
 }
