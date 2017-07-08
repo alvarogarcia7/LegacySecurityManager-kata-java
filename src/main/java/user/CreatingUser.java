@@ -5,8 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class CreatingUser {
+
+    private BufferedReader buffer;
+
     public void invoke() {
-        BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
+        buffer = new BufferedReader(new InputStreamReader(System.in));
 
         String username = null;
         String fullName = null;
