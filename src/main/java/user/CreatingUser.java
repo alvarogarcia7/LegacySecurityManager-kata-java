@@ -11,8 +11,11 @@ public class CreatingUser {
     private BufferedReader buffer;
     private Console inputConsole;
 
+    public CreatingUser(Console inputConsole) {
+        this.inputConsole = inputConsole;
+    }
+
     public void invoke() {
-        buffer = new BufferedReader(new InputStreamReader(System.in));
 
         String username = null;
         String fullName = null;
@@ -52,7 +55,7 @@ public class CreatingUser {
     }
 
     protected String readLine() throws IOException {
-        return buffer.readLine();
+        return inputConsole.readLine();
     }
 
     protected void printLine(String line) {

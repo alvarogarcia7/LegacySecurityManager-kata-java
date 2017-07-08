@@ -24,12 +24,7 @@ public class CreatingUserShould {
     public void setUp() throws Exception {
         inputConsole = Mockito.mock(Console.class);
         outputConsole = Mockito.mock(Console.class);
-        sut = new CreatingUser() {
-            @Override
-            protected String readLine() throws IOException {
-                return inputConsole.readLine();
-            }
-
+        sut = new CreatingUser(inputConsole) {
             @Override
             protected void printLine(String line) {
                 outputConsole.printLine(line);
@@ -38,7 +33,7 @@ public class CreatingUserShould {
     }
 
     @Test
-    public void create_a_user_given_all_conditions_are_met() {
+    public void create_a_user_given_all_conditions_are_met() throws IOException {
         when(inputConsole.readLine()).thenReturn("root", "Root User", "12345678", "12345678");
 
         sut.invoke();
@@ -56,7 +51,7 @@ public class CreatingUserShould {
     }
 
     @Test
-    public void not_create_a_user_when_passwords_do_not_match() {
+    public void not_create_a_user_when_passwords_do_not_match() throws IOException {
         when(inputConsole.readLine()).thenReturn("root", "Root User", "12345678", "123456789");
 
         sut.invoke();
@@ -70,7 +65,7 @@ public class CreatingUserShould {
     }
 
     @Test
-    public void not_create_a_user_when_password_does_not_comply_with_the_password_policy() {
+    public void not_create_a_user_when_password_does_not_comply_with_the_password_policy() throws IOException {
         when(inputConsole.readLine()).thenReturn("root", "Root User", "1234", "1234");
 
         sut.invoke();
