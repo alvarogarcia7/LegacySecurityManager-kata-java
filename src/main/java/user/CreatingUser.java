@@ -17,8 +17,6 @@ public class CreatingUser {
 
     public void invoke() {
 
-        String password = null;
-        String confirmPassword = null;
         UserData userData = null;
         try {
             userNotifier.inform("Enter a username");
@@ -26,9 +24,9 @@ public class CreatingUser {
             userNotifier.inform("Enter your full name");
             String fullName = inputReadConsole.readLine();
             userNotifier.inform("Enter your password");
-            password = inputReadConsole.readLine();
+            String password = inputReadConsole.readLine();
             userNotifier.inform("Re-enter your password");
-            confirmPassword = inputReadConsole.readLine();
+            String confirmPassword = inputReadConsole.readLine();
             userData = new UserData(username, fullName, new PasswordCandidate(password, confirmPassword));
         } catch (IOException e) {
             e.printStackTrace();
