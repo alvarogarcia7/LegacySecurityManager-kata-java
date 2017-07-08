@@ -24,7 +24,7 @@ public class CreatingUserShould {
     public void setUp() throws Exception {
         inputConsole = Mockito.mock(Console.class);
         outputConsole = Mockito.mock(Console.class);
-        sut = new CreatingUser(inputConsole) {
+        sut = new CreatingUser(inputConsole, outputConsole) {
             @Override
             protected void printLine(String line) {
                 outputConsole.printLine(line);

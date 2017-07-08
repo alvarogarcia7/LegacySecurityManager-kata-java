@@ -2,15 +2,16 @@ package user;
 
 import infrastructure.Console;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 
 public class CreatingUser {
 
     private Console inputConsole;
+    private Console outputConsole;
 
-    public CreatingUser(Console inputConsole) {
+    public CreatingUser(Console inputConsole, Console outputConsole) {
         this.inputConsole = inputConsole;
+        this.outputConsole = outputConsole;
     }
 
     public void invoke() {
@@ -53,6 +54,6 @@ public class CreatingUser {
     }
 
     protected void printLine(String line) {
-        System.out.println(line);
+        outputConsole.printLine(line);
     }
 }

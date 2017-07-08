@@ -26,6 +26,16 @@ public class SecurityManager {
                 throw new RuntimeException("Not yet implemented");
             }
 
+        }, new Console() {
+            @Override
+            public String readLine() throws IOException {
+                throw new RuntimeException("Not yet implemented");
+            }
+
+            @Override
+            public void printLine(String line) {
+                System.out.println(line);
+            }
         }).invoke();
     }
 
