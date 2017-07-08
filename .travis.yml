@@ -1,0 +1,7 @@
+sudo: false
+language: java
+install: make install
+test: make test
+jdk:
+  - oraclejdk8
+
