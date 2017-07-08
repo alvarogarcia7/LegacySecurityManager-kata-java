@@ -1,4 +1,4 @@
-package user;
+package user.password;
 
 import io.vavr.collection.Seq;
 import io.vavr.control.Either;

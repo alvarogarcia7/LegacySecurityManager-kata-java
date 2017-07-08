@@ -1,4 +1,6 @@
-package user;
+package user.creation;
+
+import user.password.PasswordCandidate;
 
 public class UserData {
     private final String username;

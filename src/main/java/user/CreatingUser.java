@@ -1,6 +1,11 @@
 package user;
 
 import io.vavr.control.Either;
+import user.communication.UserInput;
+import user.communication.UserNotifier;
+import user.creation.UserData;
+import user.creation.UserDataRequest;
+import user.password.PasswordCandidate;
 
 import java.util.List;
 

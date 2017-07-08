@@ -6,8 +6,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 import user.CreatingUser;
-import user.UserInput;
-import user.UserNotifier;
+import user.communication.UserInput;
+import user.communication.UserNotifier;
 
 import java.io.IOException;
 import java.util.Arrays;

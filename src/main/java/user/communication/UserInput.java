@@ -1,4 +1,4 @@
-package user;
+package user.communication;
 
 import infrastructure.ReadConsole;
 import infrastructure.RealReadConsole;

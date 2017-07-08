@@ -1,6 +1,7 @@
-package user;
+package user.creation;
 
 import io.vavr.control.Either;
+import user.password.PasswordCandidate;
 
 import java.util.List;
 

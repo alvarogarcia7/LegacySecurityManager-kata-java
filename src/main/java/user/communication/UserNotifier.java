@@ -1,6 +1,7 @@
-package user;
+package user.communication;
 
 import infrastructure.WriteConsole;
+import user.creation.UserData;
 
 public class UserNotifier {
     private WriteConsole console;
@@ -21,7 +22,7 @@ public class UserNotifier {
         console.printLine(message);
     }
 
-    String prompt(String question, UserInput inputReadConsole) {
+    public String prompt(String question, UserInput inputReadConsole) {
         inform(question);
         try {
             return inputReadConsole.readLine();

@@ -1,8 +1,8 @@
 
 import infrastructure.RealReadConsole;
 import user.CreatingUser;
-import user.UserInput;
-import user.UserNotifier;
+import user.communication.UserInput;
+import user.communication.UserNotifier;
 
 public class SecurityManager {
     public static void createUser() {
