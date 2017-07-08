@@ -1,7 +1,6 @@
 package user.communication;
 
-import infrastructure.ReadConsole;
-import infrastructure.RealReadConsole;
+import infrastructure.console.ReadConsole;
 
 import java.io.IOException;
 

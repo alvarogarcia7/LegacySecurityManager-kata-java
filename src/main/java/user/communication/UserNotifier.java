@@ -1,6 +1,6 @@
 package user.communication;
 
-import infrastructure.WriteConsole;
+import infrastructure.console.WriteConsole;
 import user.creation.UserData;
 
 public class UserNotifier {

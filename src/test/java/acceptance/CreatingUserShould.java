@@ -1,7 +1,7 @@
 package acceptance;
 
-import infrastructure.WriteConsole;
-import infrastructure.ReadConsole;
+import infrastructure.console.WriteConsole;
+import infrastructure.console.ReadConsole;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;

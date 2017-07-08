@@ -1,4 +1,4 @@
-package infrastructure;
+package infrastructure.console;
 
 import java.io.IOException;
 

@@ -1,5 +1,5 @@
 
-import infrastructure.RealReadConsole;
+import infrastructure.console.RealReadConsole;
 import user.CreatingUser;
 import user.communication.UserInput;
 import user.communication.UserNotifier;

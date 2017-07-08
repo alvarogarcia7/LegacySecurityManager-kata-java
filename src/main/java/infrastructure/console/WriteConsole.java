@@ -1,4 +1,4 @@
-package infrastructure;
+package infrastructure.console;
 
 public interface WriteConsole {
 
