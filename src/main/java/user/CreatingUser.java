@@ -22,17 +22,16 @@ public class CreatingUser {
     }
 
     private UserData readUserData() {
-        UserData userData = null;
         try {
             String username = userNotifier.prompt("Enter a username", inputReadConsole);
             String fullName = userNotifier.prompt("Enter your full name", inputReadConsole);
             String password = userNotifier.prompt("Enter your password", inputReadConsole);
             String confirmPassword = userNotifier.prompt("Re-enter your password", inputReadConsole);
-            userData = new UserData(username, fullName, new PasswordCandidate(password, confirmPassword));
+            return new UserData(username, fullName, new PasswordCandidate(password, confirmPassword));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return userData;
+        return null;
     }
 
 }
