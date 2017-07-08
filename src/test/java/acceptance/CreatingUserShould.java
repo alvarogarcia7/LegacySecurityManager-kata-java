@@ -62,7 +62,8 @@ public class CreatingUserShould {
                 "Enter a username",
                 "Enter your full name",
                 "Enter your password",
-                "Re-enter your password"));
+                "Re-enter your password",
+                "The passwords don't match"));
     }
 
     private void verifyThat(Console console, List<String> lines) {
