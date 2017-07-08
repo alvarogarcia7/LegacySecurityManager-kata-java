@@ -1,6 +1,7 @@
 package acceptance;
 
 import infrastructure.Console;
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 import user.CreatingUser;
@@ -14,9 +15,15 @@ import static org.mockito.Mockito.when;
 
 public class CreatingUserShould {
 
+    private Console console;
+
+    @Before
+    public void setUp() throws Exception {
+        console = Mockito.mock(Console.class);
+    }
+
     @Test
     public void create_a_user_given_all_conditions_are_met() {
-        Console console = Mockito.mock(Console.class);
         when(console.readLine()).thenReturn("root", "Root User", "12345678", "12345678");
         CreatingUser sut = new CreatingUser() {
             @Override
