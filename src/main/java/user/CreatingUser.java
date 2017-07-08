@@ -34,15 +34,7 @@ public class CreatingUser {
             e.printStackTrace();
         }
 
-        if (!password.equals(confirmPassword)) {
-            outputWriteConsole.printLine("The passwords don't match");
-            return;
-        }
-
-        if (password.length() < 8) {
-            outputWriteConsole.printLine("Password must be at least 8 characters in length");
-            return;
-        }
+        if (breaksThePasswordPolicy(password, confirmPassword)) return;
 
         // Encrypt the password (just reverse it, should be secure)
         String encryptedPassword = new StringBuilder(password).reverse().toString();
@@ -52,6 +44,19 @@ public class CreatingUser {
                 username,
                 fullName,
                 encryptedPassword));
+    }
+
+    private boolean breaksThePasswordPolicy(String password, String confirmPassword) {
+        if (!password.equals(confirmPassword)) {
+            outputWriteConsole.printLine("The passwords don't match");
+            return true;
+        }
+
+        if (password.length() < 8) {
+            outputWriteConsole.printLine("Password must be at least 8 characters in length");
+            return true;
+        }
+        return false;
     }
 
 }
