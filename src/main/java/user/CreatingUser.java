@@ -1,7 +1,7 @@
 package user;
 
-import infrastructure.WriteConsole;
 import infrastructure.ReadConsole;
+import infrastructure.WriteConsole;
 
 import java.io.IOException;
 
@@ -17,16 +17,14 @@ public class CreatingUser {
 
     public void invoke() {
 
-        String username = null;
-        String fullName = null;
         String password = null;
         String confirmPassword = null;
         UserData userData = null;
         try {
             outputWriteConsole.printLine("Enter a username");
-            username = inputReadConsole.readLine();
+            String username = inputReadConsole.readLine();
             outputWriteConsole.printLine("Enter your full name");
-            fullName = inputReadConsole.readLine();
+            String fullName = inputReadConsole.readLine();
             outputWriteConsole.printLine("Enter your password");
             password = inputReadConsole.readLine();
             outputWriteConsole.printLine("Re-enter your password");
