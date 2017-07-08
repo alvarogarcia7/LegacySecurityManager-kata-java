@@ -16,7 +16,12 @@ public class CreatingUser {
     }
 
     public void invoke() {
+        UserData userData = readUserData();
+        if (!userData.isValidPassword(userNotifier)) return;
+        userNotifier.userCreated(userData);
+    }
 
+    private UserData readUserData() {
         UserData userData = null;
         try {
             String username = userNotifier.prompt("Enter a username", inputReadConsole);
@@ -27,10 +32,7 @@ public class CreatingUser {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        if (!userData.isValidPassword(userNotifier)) return;
-
-        userNotifier.userCreated(userData);
+        return userData;
     }
 
 }
