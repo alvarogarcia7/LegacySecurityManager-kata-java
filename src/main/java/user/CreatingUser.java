@@ -36,7 +36,7 @@ public class CreatingUser {
             e.printStackTrace();
         }
 
-        if (breaksThePasswordPolicy(password, confirmPassword, userData)) return;
+        if (!compliesWithPasswordPolicy(password, confirmPassword, userData)) return;
 
         // Encrypt the password (just reverse it, should be secure)
         String encryptedPassword = new StringBuilder(password).reverse().toString();
@@ -48,7 +48,7 @@ public class CreatingUser {
                 encryptedPassword));
     }
 
-    private boolean breaksThePasswordPolicy(String password, String confirmPassword, UserData userData) {
+    private boolean compliesWithPasswordPolicy(String password, String confirmPassword, UserData userData) {
         boolean result = false;
         if (!password.equals(confirmPassword)) {
             outputWriteConsole.printLine("The passwords don't match");
@@ -60,7 +60,7 @@ public class CreatingUser {
             result = true;
         }
         assert result == !userData.isValidPassword();
-        return result;
+        return !result;
     }
 
 }
