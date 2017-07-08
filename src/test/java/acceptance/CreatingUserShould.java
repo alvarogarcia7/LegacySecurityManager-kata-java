@@ -16,16 +16,12 @@ import static org.mockito.Mockito.when;
 public class CreatingUserShould {
 
     private Console console;
+    private CreatingUser sut;
 
     @Before
     public void setUp() throws Exception {
         console = Mockito.mock(Console.class);
-    }
-
-    @Test
-    public void create_a_user_given_all_conditions_are_met() {
-        when(console.readLine()).thenReturn("root", "Root User", "12345678", "12345678");
-        CreatingUser sut = new CreatingUser() {
+        sut = new CreatingUser() {
             @Override
             protected String readLine() throws IOException {
                 return console.readLine();
@@ -36,6 +32,11 @@ public class CreatingUserShould {
                 console.printLine(line);
             }
         };
+    }
+
+    @Test
+    public void create_a_user_given_all_conditions_are_met() {
+        when(console.readLine()).thenReturn("root", "Root User", "12345678", "12345678");
 
         sut.invoke();
 
