@@ -36,14 +36,11 @@ public class CreatingUser {
 
         if (!compliesWithPasswordPolicy(password, confirmPassword, userData)) return;
 
-        // Encrypt the password (just reverse it, should be secure)
-        String encryptedPassword = new StringBuilder(password).reverse().toString();
-
         outputWriteConsole.printLine(String.format(
                 "Saving Details for User (%s, %s, %s)\n",
                 userData.username(),
                 userData.fullName(),
-                encryptedPassword));
+                userData.encryptedPassword()));
     }
 
     private boolean compliesWithPasswordPolicy(String password, String confirmPassword, UserData userData) {

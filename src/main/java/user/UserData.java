@@ -22,4 +22,8 @@ public class UserData {
     public String fullName() {
         return fullName;
     }
+
+    public String encryptedPassword() {
+        return passwordCandidate.encrypt();
+    }
 }
