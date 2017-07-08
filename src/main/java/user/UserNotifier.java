@@ -24,4 +24,8 @@ public class UserNotifier {
     void passwordDidNotComplyWithPolicy() {
         console.printLine("Password must be at least 8 characters in length");
     }
+
+    public void inform(String message) {
+        console.printLine(message);
+    }
 }

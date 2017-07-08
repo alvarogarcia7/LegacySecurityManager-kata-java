@@ -23,13 +23,13 @@ public class CreatingUser {
         String confirmPassword = null;
         UserData userData = null;
         try {
-            outputWriteConsole.printLine("Enter a username");
+            userNotifier.inform("Enter a username");
             String username = inputReadConsole.readLine();
-            outputWriteConsole.printLine("Enter your full name");
+            userNotifier.inform("Enter your full name");
             String fullName = inputReadConsole.readLine();
-            outputWriteConsole.printLine("Enter your password");
+            userNotifier.inform("Enter your password");
             password = inputReadConsole.readLine();
-            outputWriteConsole.printLine("Re-enter your password");
+            userNotifier.inform("Re-enter your password");
             confirmPassword = inputReadConsole.readLine();
             userData = new UserData(username, fullName, new PasswordCandidate(password, confirmPassword));
         } catch (IOException e) {
