@@ -16,4 +16,8 @@ public class UserNotifier {
                 userData.fullName(),
                 userData.encryptedPassword()));
     }
+
+    void passwordsDidNotMatch() {
+        console.printLine("The passwords don't match");
+    }
 }

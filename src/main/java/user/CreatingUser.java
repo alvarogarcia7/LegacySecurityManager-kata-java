@@ -44,7 +44,7 @@ public class CreatingUser {
     private boolean compliesWithPasswordPolicy(String password, String confirmPassword, UserData userData) {
         boolean result = true;
         if (!password.equals(confirmPassword)) {
-            outputWriteConsole.printLine("The passwords don't match");
+            userNotifier.passwordsDidNotMatch();
             result = false;
         }
 
