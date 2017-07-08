@@ -9,8 +9,19 @@ public class PasswordCandidate {
         this.secondTry = secondTry;
     }
 
-    public boolean isValid() {
-        return firstTry.equals(secondTry) && firstTry.length()>=8;
+    public boolean isValid(UserNotifier userNotifier) {
+        boolean result = true;
+        if (!firstTry.equals(secondTry)) {
+            userNotifier.passwordsDidNotMatch();
+            result = false;
+        }
+
+        if (firstTry.length() < 8) {
+            userNotifier.passwordDidNotComplyWithPolicy();
+            result = false;
+        }
+
+        return result;
     }
 
     public String encrypt() {

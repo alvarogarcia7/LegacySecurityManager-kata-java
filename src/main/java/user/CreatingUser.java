@@ -40,18 +40,7 @@ public class CreatingUser {
     }
 
     private boolean compliesWithPasswordPolicy(String password, String confirmPassword, UserData userData) {
-        boolean result = true;
-        if (!password.equals(confirmPassword)) {
-            userNotifier.passwordsDidNotMatch();
-            result = false;
-        }
-
-        if (password.length() < 8) {
-            userNotifier.passwordDidNotComplyWithPolicy();
-            result = false;
-        }
-        assert result == userData.isValidPassword();
-        return result;
+        return userData.isValidPassword(userNotifier);
     }
 
 }

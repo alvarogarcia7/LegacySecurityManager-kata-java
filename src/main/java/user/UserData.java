@@ -11,8 +11,8 @@ public class UserData {
         this.passwordCandidate = passwordCandidate;
     }
 
-    public boolean isValidPassword() {
-        return passwordCandidate.isValid();
+    public boolean isValidPassword(UserNotifier userNotifier) {
+        return passwordCandidate.isValid(userNotifier);
     }
 
     public String username() {
