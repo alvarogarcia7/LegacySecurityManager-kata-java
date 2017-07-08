@@ -33,15 +33,15 @@ public class CreatingUserShould {
         sut.invoke();
 
         verifyThat(console, printsLines(
-                printLine("Enter a username"),
-                printLine("Enter your full name"),
-                printLine("Enter your password"),
-                printLine("Re-enter your password"),
-                printLine(String.format(
+                "Enter a username",
+                "Enter your full name",
+                "Enter your password",
+                "Re-enter your password",
+                String.format(
                         "Saving Details for User (%s, %s, %s)\n",
                         "root",
                         "Root User",
-                        "87654321"))));
+                        "87654321")));
     }
 
     private void verifyThat(Console console, List<String> lines) {
@@ -52,7 +52,4 @@ public class CreatingUserShould {
         return Arrays.asList(lines);
     }
 
-    private String printLine(String line) {
-        return line;
-    }
 }
