@@ -1,5 +1,7 @@
 package user;
 
+import infrastructure.Console;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,6 +9,7 @@ import java.io.InputStreamReader;
 public class CreatingUser {
 
     private BufferedReader buffer;
+    private Console inputConsole;
 
     public void invoke() {
         buffer = new BufferedReader(new InputStreamReader(System.in));
