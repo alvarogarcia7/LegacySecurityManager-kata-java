@@ -49,16 +49,17 @@ public class CreatingUser {
     }
 
     private boolean breaksThePasswordPolicy(String password, String confirmPassword, UserData userData) {
+        boolean result = false;
         if (!password.equals(confirmPassword)) {
             outputWriteConsole.printLine("The passwords don't match");
-            return true;
+            result = true;
         }
 
         if (password.length() < 8) {
             outputWriteConsole.printLine("Password must be at least 8 characters in length");
-            return true;
+            result = true;
         }
-        return false;
+        return result;
     }
 
 }
