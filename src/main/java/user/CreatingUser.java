@@ -4,7 +4,6 @@ import infrastructure.Console;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class CreatingUser {
 
@@ -23,13 +22,13 @@ public class CreatingUser {
         String confirmPassword = null;
         try {
             printLine("Enter a username");
-            username = readLine();
+            username = inputConsole.readLine();
             printLine("Enter your full name");
-            fullName = readLine();
+            fullName = inputConsole.readLine();
             printLine("Enter your password");
-            password = readLine();
+            password = inputConsole.readLine();
             printLine("Re-enter your password");
-            confirmPassword = readLine();
+            confirmPassword = inputConsole.readLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -52,10 +51,6 @@ public class CreatingUser {
                 username,
                 fullName,
                 encryptedPassword));
-    }
-
-    protected String readLine() throws IOException {
-        return inputConsole.readLine();
     }
 
     protected void printLine(String line) {
