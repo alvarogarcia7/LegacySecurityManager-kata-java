@@ -52,7 +52,7 @@ public class CreatingUser {
         return buffer.readLine();
     }
 
-    private void printLine(String x) {
+    protected void printLine(String x) {
         System.out.println(x);
     }
 }
