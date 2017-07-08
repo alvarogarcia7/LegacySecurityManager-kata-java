@@ -21,12 +21,7 @@ public class SecurityManager {
             public String readLine() throws IOException {
                 return buffer.readLine();
             }
-        }, new WriteConsole() {
-            @Override
-            public void printLine(String line) {
-                System.out.println(line);
-            }
-        }).invoke();
+        }, System.out::println).invoke();
     }
 
 }
