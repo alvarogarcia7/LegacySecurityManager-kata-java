@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 import user.CreatingUser;
+import user.UserNotifier;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -25,7 +26,7 @@ public class CreatingUserShould {
     public void setUp() throws Exception {
         inputReadConsole = Mockito.mock(ReadConsole.class);
         outputWriteConsole = Mockito.mock(WriteConsole.class);
-        sut = new CreatingUser(inputReadConsole, outputWriteConsole);
+        sut = new CreatingUser(inputReadConsole, new UserNotifier(outputWriteConsole));
     }
 
     @Test

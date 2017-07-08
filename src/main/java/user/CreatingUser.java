@@ -1,7 +1,6 @@
 package user;
 
 import infrastructure.ReadConsole;
-import infrastructure.WriteConsole;
 
 import java.io.IOException;
 
@@ -10,9 +9,9 @@ public class CreatingUser {
     private ReadConsole inputReadConsole;
     private final UserNotifier userNotifier;
 
-    public CreatingUser(ReadConsole inputReadConsole, WriteConsole outputWriteConsole) {
+    public CreatingUser(ReadConsole inputReadConsole, UserNotifier userNotifier) {
         this.inputReadConsole = inputReadConsole;
-        userNotifier = new UserNotifier(outputWriteConsole);
+        this.userNotifier = userNotifier;
     }
 
     public void invoke() {
