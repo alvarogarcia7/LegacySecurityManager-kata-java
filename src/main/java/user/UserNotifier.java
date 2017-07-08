@@ -32,8 +32,17 @@ public class UserNotifier {
         console.printLine(message);
     }
 
-    String prompt(String question, ReadConsole inputReadConsole) throws IOException {
+    String prompt(String question, UserInput inputReadConsole) {
         inform(question);
-        return inputReadConsole.readLine();
+        try {
+            return inputReadConsole.readLine();
+        } catch (UserInput.CannotReadLineException e) {
+            error("Could not read the line");
+            throw new RuntimeException("The program cannot continue");
+        }
+    }
+
+    private void error(String message) {
+        console.printLine(message);
     }
 }
