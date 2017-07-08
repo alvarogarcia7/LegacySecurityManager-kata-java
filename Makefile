@@ -12,4 +12,7 @@ test:
 	diff /tmp/1.actual testcases/1.expected
 	echo "Tests are OK"
 
+.PHONY: install
+install:
+	mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
