@@ -49,18 +49,18 @@ public class CreatingUser {
     }
 
     private boolean compliesWithPasswordPolicy(String password, String confirmPassword, UserData userData) {
-        boolean result = false;
+        boolean result = true;
         if (!password.equals(confirmPassword)) {
             outputWriteConsole.printLine("The passwords don't match");
-            result = true;
+            result = false;
         }
 
         if (password.length() < 8) {
             outputWriteConsole.printLine("Password must be at least 8 characters in length");
-            result = true;
+            result = false;
         }
-        assert result == !userData.isValidPassword();
-        return !result;
+        assert result == userData.isValidPassword();
+        return result;
     }
 
 }
