@@ -7,7 +7,6 @@ import java.io.IOException;
 
 public class CreatingUser {
 
-    private BufferedReader buffer;
     private Console inputConsole;
 
     public CreatingUser(Console inputConsole) {
