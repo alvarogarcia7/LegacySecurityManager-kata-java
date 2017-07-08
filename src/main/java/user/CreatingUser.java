@@ -1,5 +1,9 @@
 package user;
 
+import io.vavr.control.Either;
+
+import java.util.List;
+
 public class CreatingUser {
 
     private UserInput userInput;
@@ -11,19 +15,21 @@ public class CreatingUser {
     }
 
     public void invoke() {
-        UserData userData = readUserData();
-        if (!userData.isValidPassword(userNotifier)) {
+        UserDataRequest userDataRequest = readUserData();
+        Either<List<String>, UserData> result = userDataRequest.validate();
+        if (result.isLeft()) {
+            result.left().forEach(messages -> messages.forEach(userNotifier::inform));
             return;
         }
-        userNotifier.userCreated(userData);
+        result.forEach(userNotifier::userCreated);
     }
 
-    private UserData readUserData() {
+    private UserDataRequest readUserData() {
         String username = userNotifier.prompt("Enter a username", userInput);
         String fullName = userNotifier.prompt("Enter your full name", userInput);
         String password = userNotifier.prompt("Enter your password", userInput);
         String confirmPassword = userNotifier.prompt("Re-enter your password", userInput);
-        return new UserData(username, fullName, new PasswordCandidate(password, confirmPassword));
+        return new UserDataRequest(username, fullName, new PasswordCandidate(password, confirmPassword));
     }
 
 }

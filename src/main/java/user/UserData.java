@@ -3,27 +3,24 @@ package user;
 public class UserData {
     private final String username;
     private final String fullName;
-    private final PasswordCandidate passwordCandidate;
+    private final PasswordCandidate.EncryptedPassword password;
 
-    public UserData(String username, String fullName, PasswordCandidate passwordCandidate) {
+    public UserData(String username, String fullName, PasswordCandidate.EncryptedPassword password) {
+
         this.username = username;
         this.fullName = fullName;
-        this.passwordCandidate = passwordCandidate;
+        this.password = password;
     }
 
-    public boolean isValidPassword(UserNotifier userNotifier) {
-        return passwordCandidate.isValid(userNotifier);
-    }
-
-    public String username() {
-        return username;
+    public PasswordCandidate.EncryptedPassword passwordRepresentation() {
+        return password;
     }
 
     public String fullName() {
         return fullName;
     }
 
-    public String encryptedPassword() {
-        return passwordCandidate.encrypt();
+    public String username() {
+        return username;
     }
 }
