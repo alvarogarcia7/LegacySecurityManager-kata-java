@@ -59,6 +59,7 @@ public class CreatingUser {
             outputWriteConsole.printLine("Password must be at least 8 characters in length");
             result = true;
         }
+        assert result == !userData.isValidPassword();
         return result;
     }
 
