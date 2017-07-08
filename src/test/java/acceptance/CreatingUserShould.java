@@ -25,8 +25,8 @@ public class CreatingUserShould {
             }
 
             @Override
-            protected void printLine(String x) {
-                console.printLine(x);
+            protected void printLine(String line) {
+                console.printLine(line);
             }
         };
 
