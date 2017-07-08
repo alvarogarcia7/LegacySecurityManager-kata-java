@@ -17,13 +17,13 @@ public class CreatingUser {
         String confirmPassword = null;
         try {
             printLine("Enter a username");
-            username = buffer.readLine();
+            username = readLine();
             printLine("Enter your full name");
-            fullName = buffer.readLine();
+            fullName = readLine();
             printLine("Enter your password");
-            password = buffer.readLine();
+            password = readLine();
             printLine("Re-enter your password");
-            confirmPassword = buffer.readLine();
+            confirmPassword = readLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -46,6 +46,10 @@ public class CreatingUser {
                 username,
                 fullName,
                 encryptedPassword));
+    }
+
+    private String readLine() throws IOException {
+        return buffer.readLine();
     }
 
     private void printLine(String x) {
