@@ -21,39 +21,36 @@ public class CreatingUser {
         String password = null;
         String confirmPassword = null;
         try {
-            printLine("Enter a username");
+            outputConsole.printLine("Enter a username");
             username = inputConsole.readLine();
-            printLine("Enter your full name");
+            outputConsole.printLine("Enter your full name");
             fullName = inputConsole.readLine();
-            printLine("Enter your password");
+            outputConsole.printLine("Enter your password");
             password = inputConsole.readLine();
-            printLine("Re-enter your password");
+            outputConsole.printLine("Re-enter your password");
             confirmPassword = inputConsole.readLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         if (!password.equals(confirmPassword)) {
-            printLine("The passwords don't match");
+            outputConsole.printLine("The passwords don't match");
             return;
         }
 
         if (password.length() < 8) {
-            printLine("Password must be at least 8 characters in length");
+            outputConsole.printLine("Password must be at least 8 characters in length");
             return;
         }
 
         // Encrypt the password (just reverse it, should be secure)
         String encryptedPassword = new StringBuilder(password).reverse().toString();
 
-        printLine(String.format(
+        outputConsole.printLine(String.format(
                 "Saving Details for User (%s, %s, %s)\n",
                 username,
                 fullName,
                 encryptedPassword));
     }
 
-    protected void printLine(String line) {
-        outputConsole.printLine(line);
-    }
 }

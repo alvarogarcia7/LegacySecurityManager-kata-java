@@ -25,7 +25,6 @@ public class CreatingUserShould {
         inputConsole = Mockito.mock(Console.class);
         outputConsole = Mockito.mock(Console.class);
         sut = new CreatingUser(inputConsole, outputConsole) {
-            @Override
             protected void printLine(String line) {
                 outputConsole.printLine(line);
             }
