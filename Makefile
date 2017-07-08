@@ -8,6 +8,10 @@ clean:
 
 .PHONY: test
 test:
+	echo "Unit and Acceptance tests"
+	mvn test
+
+	echo "End to end tests"
 	java -cp "./target/classes" Main < testcases/1.input > /tmp/1.actual
 	diff /tmp/1.actual testcases/1.expected
 	echo "Tests are OK"
