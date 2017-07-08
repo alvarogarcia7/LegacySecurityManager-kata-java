@@ -19,8 +19,7 @@ public class CreatingUser {
 
         UserData userData = null;
         try {
-            userNotifier.inform("Enter a username");
-            String username = inputReadConsole.readLine();
+            String username = userNotifier.prompt("Enter a username", inputReadConsole);
             userNotifier.inform("Enter your full name");
             String fullName = inputReadConsole.readLine();
             userNotifier.inform("Enter your password");

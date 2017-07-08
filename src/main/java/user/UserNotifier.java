@@ -1,6 +1,9 @@
 package user;
 
+import infrastructure.ReadConsole;
 import infrastructure.WriteConsole;
+
+import java.io.IOException;
 
 public class UserNotifier {
     private WriteConsole console;
@@ -27,5 +30,10 @@ public class UserNotifier {
 
     public void inform(String message) {
         console.printLine(message);
+    }
+
+    String prompt(String question, ReadConsole inputReadConsole) throws IOException {
+        inform(question);
+        return inputReadConsole.readLine();
     }
 }
