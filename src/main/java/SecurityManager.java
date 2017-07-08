@@ -9,7 +9,7 @@ public class SecurityManager {
     }
 
     private static class CreatingUser {
-        private void invoke() {
+        public void invoke() {
             BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
 
             String username = null;
