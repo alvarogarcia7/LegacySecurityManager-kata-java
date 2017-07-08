@@ -34,13 +34,9 @@ public class CreatingUser {
             e.printStackTrace();
         }
 
-        if (!compliesWithPasswordPolicy(userData)) return;
+        if (!userData.isValidPassword(userNotifier)) return;
 
         userNotifier.userCreated(userData);
-    }
-
-    private boolean compliesWithPasswordPolicy(UserData userData) {
-        return userData.isValidPassword(userNotifier);
     }
 
 }
