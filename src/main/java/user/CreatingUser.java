@@ -34,12 +34,12 @@ public class CreatingUser {
             e.printStackTrace();
         }
 
-        if (!compliesWithPasswordPolicy(password, confirmPassword, userData)) return;
+        if (!compliesWithPasswordPolicy(userData)) return;
 
         userNotifier.userCreated(userData);
     }
 
-    private boolean compliesWithPasswordPolicy(String password, String confirmPassword, UserData userData) {
+    private boolean compliesWithPasswordPolicy(UserData userData) {
         return userData.isValidPassword(userNotifier);
     }
 
