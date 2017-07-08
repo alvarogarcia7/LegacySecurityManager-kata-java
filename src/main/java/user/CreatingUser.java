@@ -43,8 +43,8 @@ public class CreatingUser {
 
         outputWriteConsole.printLine(String.format(
                 "Saving Details for User (%s, %s, %s)\n",
-                username,
-                fullName,
+                userData.username(),
+                userData.fullName(),
                 encryptedPassword));
     }
 
