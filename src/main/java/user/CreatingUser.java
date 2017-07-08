@@ -8,11 +8,13 @@ import java.io.IOException;
 public class CreatingUser {
 
     private ReadConsole inputReadConsole;
+    private final UserNotifier userNotifier;
     private WriteConsole outputWriteConsole;
 
     public CreatingUser(ReadConsole inputReadConsole, WriteConsole outputWriteConsole) {
         this.inputReadConsole = inputReadConsole;
         this.outputWriteConsole = outputWriteConsole;
+        userNotifier = new UserNotifier(outputWriteConsole);
     }
 
     public void invoke() {
@@ -36,11 +38,7 @@ public class CreatingUser {
 
         if (!compliesWithPasswordPolicy(password, confirmPassword, userData)) return;
 
-        outputWriteConsole.printLine(String.format(
-                "Saving Details for User (%s, %s, %s)\n",
-                userData.username(),
-                userData.fullName(),
-                userData.encryptedPassword()));
+        userNotifier.userCreated(userData);
     }
 
     private boolean compliesWithPasswordPolicy(String password, String confirmPassword, UserData userData) {
