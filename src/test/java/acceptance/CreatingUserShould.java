@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 public class CreatingUserShould {
@@ -64,6 +65,20 @@ public class CreatingUserShould {
                 "Enter your password",
                 "Re-enter your password",
                 "The passwords don't match"));
+    }
+
+    @Test
+    public void not_create_a_user_when_password_does_not_comply_with_the_password_policy() {
+        when(console.readLine()).thenReturn("root", "Root User", "1234", "1234");
+
+        sut.invoke();
+
+        verifyThat(console, printsLines(
+                "Enter a username",
+                "Enter your full name",
+                "Enter your password",
+                "Re-enter your password",
+                "Password must be at least 8 characters in length"));
     }
 
     private void verifyThat(Console console, List<String> lines) {
