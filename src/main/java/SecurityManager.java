@@ -1,5 +1,6 @@
 
-import infrastructure.Console;
+import infrastructure.ReadConsole;
+import infrastructure.WriteConsole;
 import user.CreatingUser;
 
 import java.io.BufferedReader;
@@ -8,7 +9,7 @@ import java.io.InputStreamReader;
 
 public class SecurityManager {
     public static void createUser() {
-        new CreatingUser(new Console() {
+        new CreatingUser(new ReadConsole() {
             public final BufferedReader buffer;
 
             {
@@ -20,18 +21,7 @@ public class SecurityManager {
             public String readLine() throws IOException {
                 return buffer.readLine();
             }
-
-            @Override
-            public void printLine(String line) {
-                throw new RuntimeException("Not yet implemented");
-            }
-
-        }, new Console() {
-            @Override
-            public String readLine() throws IOException {
-                throw new RuntimeException("Not yet implemented");
-            }
-
+        }, new WriteConsole() {
             @Override
             public void printLine(String line) {
                 System.out.println(line);

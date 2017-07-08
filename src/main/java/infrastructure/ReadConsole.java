@@ -2,8 +2,6 @@ package infrastructure;
 
 import java.io.IOException;
 
-public interface Console {
+public interface ReadConsole {
     String readLine() throws IOException;
-
-    void printLine(String line);
 }

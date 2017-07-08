@@ -1,6 +1,7 @@
 package acceptance;
 
-import infrastructure.Console;
+import infrastructure.WriteConsole;
+import infrastructure.ReadConsole;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -16,28 +17,28 @@ import static org.mockito.Mockito.when;
 
 public class CreatingUserShould {
 
-    private Console inputConsole;
+    private ReadConsole inputReadConsole;
     private CreatingUser sut;
-    private Console outputConsole;
+    private WriteConsole outputWriteConsole;
 
     @Before
     public void setUp() throws Exception {
-        inputConsole = Mockito.mock(Console.class);
-        outputConsole = Mockito.mock(Console.class);
-        sut = new CreatingUser(inputConsole, outputConsole) {
+        inputReadConsole = Mockito.mock(ReadConsole.class);
+        outputWriteConsole = Mockito.mock(WriteConsole.class);
+        sut = new CreatingUser(inputReadConsole, outputWriteConsole) {
             protected void printLine(String line) {
-                outputConsole.printLine(line);
+                outputWriteConsole.printLine(line);
             }
         };
     }
 
     @Test
     public void create_a_user_given_all_conditions_are_met() throws IOException {
-        when(inputConsole.readLine()).thenReturn("root", "Root User", "12345678", "12345678");
+        when(inputReadConsole.readLine()).thenReturn("root", "Root User", "12345678", "12345678");
 
         sut.invoke();
 
-        verifyThat(outputConsole, printsLines(
+        verifyThat(outputWriteConsole, printsLines(
                 "Enter a username",
                 "Enter your full name",
                 "Enter your password",
@@ -51,11 +52,11 @@ public class CreatingUserShould {
 
     @Test
     public void not_create_a_user_when_passwords_do_not_match() throws IOException {
-        when(inputConsole.readLine()).thenReturn("root", "Root User", "12345678", "123456789");
+        when(inputReadConsole.readLine()).thenReturn("root", "Root User", "12345678", "123456789");
 
         sut.invoke();
 
-        verifyThat(outputConsole, printsLines(
+        verifyThat(outputWriteConsole, printsLines(
                 "Enter a username",
                 "Enter your full name",
                 "Enter your password",
@@ -65,11 +66,11 @@ public class CreatingUserShould {
 
     @Test
     public void not_create_a_user_when_password_does_not_comply_with_the_password_policy() throws IOException {
-        when(inputConsole.readLine()).thenReturn("root", "Root User", "1234", "1234");
+        when(inputReadConsole.readLine()).thenReturn("root", "Root User", "1234", "1234");
 
         sut.invoke();
 
-        verifyThat(outputConsole, printsLines(
+        verifyThat(outputWriteConsole, printsLines(
                 "Enter a username",
                 "Enter your full name",
                 "Enter your password",
@@ -77,9 +78,9 @@ public class CreatingUserShould {
                 "Password must be at least 8 characters in length"));
     }
 
-    private void verifyThat(Console outputConsole, List<String> lines) {
-        lines.forEach(line -> verify(outputConsole).printLine(line));
-        verifyNoMoreInteractions(outputConsole);
+    private void verifyThat(WriteConsole outputReadConsole, List<String> lines) {
+        lines.forEach(line -> verify(outputReadConsole).printLine(line));
+        verifyNoMoreInteractions(outputReadConsole);
     }
 
     private List<String> printsLines(String... lines) {
