@@ -25,11 +25,7 @@ public class CreatingUserShould {
     public void setUp() throws Exception {
         inputReadConsole = Mockito.mock(ReadConsole.class);
         outputWriteConsole = Mockito.mock(WriteConsole.class);
-        sut = new CreatingUser(inputReadConsole, outputWriteConsole) {
-            protected void printLine(String line) {
-                outputWriteConsole.printLine(line);
-            }
-        };
+        sut = new CreatingUser(inputReadConsole, outputWriteConsole);
     }
 
     @Test
