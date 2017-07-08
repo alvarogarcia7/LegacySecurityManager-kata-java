@@ -30,6 +30,7 @@ public class CreatingUser {
             password = inputReadConsole.readLine();
             outputWriteConsole.printLine("Re-enter your password");
             confirmPassword = inputReadConsole.readLine();
+            UserData userData = new UserData(username, fullName, new PasswordCandidate(password, confirmPassword));
         } catch (IOException e) {
             e.printStackTrace();
         }
