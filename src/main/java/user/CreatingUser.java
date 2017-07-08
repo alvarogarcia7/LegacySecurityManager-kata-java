@@ -21,6 +21,7 @@ public class CreatingUser {
         String fullName = null;
         String password = null;
         String confirmPassword = null;
+        UserData userData = null;
         try {
             outputWriteConsole.printLine("Enter a username");
             username = inputReadConsole.readLine();
@@ -30,12 +31,12 @@ public class CreatingUser {
             password = inputReadConsole.readLine();
             outputWriteConsole.printLine("Re-enter your password");
             confirmPassword = inputReadConsole.readLine();
-            UserData userData = new UserData(username, fullName, new PasswordCandidate(password, confirmPassword));
+            userData = new UserData(username, fullName, new PasswordCandidate(password, confirmPassword));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        if (breaksThePasswordPolicy(password, confirmPassword)) return;
+        if (breaksThePasswordPolicy(password, confirmPassword, userData)) return;
 
         // Encrypt the password (just reverse it, should be secure)
         String encryptedPassword = new StringBuilder(password).reverse().toString();
@@ -47,7 +48,7 @@ public class CreatingUser {
                 encryptedPassword));
     }
 
-    private boolean breaksThePasswordPolicy(String password, String confirmPassword) {
+    private boolean breaksThePasswordPolicy(String password, String confirmPassword, UserData userData) {
         if (!password.equals(confirmPassword)) {
             outputWriteConsole.printLine("The passwords don't match");
             return true;
