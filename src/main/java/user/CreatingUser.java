@@ -48,7 +48,7 @@ public class CreatingUser {
                 encryptedPassword));
     }
 
-    private String readLine() throws IOException {
+    protected String readLine() throws IOException {
         return buffer.readLine();
     }
 
