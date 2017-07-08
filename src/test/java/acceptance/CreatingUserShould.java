@@ -17,8 +17,8 @@ import static org.mockito.Mockito.when;
 
 public class CreatingUserShould {
 
-    private ReadConsole inputReadConsole;
     private CreatingUser sut;
+    private ReadConsole inputReadConsole;
     private WriteConsole outputWriteConsole;
 
     @Before
