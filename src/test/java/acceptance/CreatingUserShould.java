@@ -52,6 +52,19 @@ public class CreatingUserShould {
                         "87654321")));
     }
 
+    @Test
+    public void not_create_a_user_when_passwords_do_not_match() {
+        when(console.readLine()).thenReturn("root", "Root User", "12345678", "123456789");
+
+        sut.invoke();
+
+        verifyThat(console, printsLines(
+                "Enter a username",
+                "Enter your full name",
+                "Enter your password",
+                "Re-enter your password"));
+    }
+
     private void verifyThat(Console console, List<String> lines) {
         lines.forEach(line -> verify(console).printLine(line));
     }
